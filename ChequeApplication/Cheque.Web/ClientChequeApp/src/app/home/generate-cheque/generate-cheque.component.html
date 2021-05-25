@@ -1,43 +1,43 @@
 <!--Add/Edit Form Page -->
-<form style="margin-top: 40px;" #userForm="ngForm" (ngSubmit)="userForm.form.valid && saveUser()" autocomplete="off" novalidate>
+<form style="margin-top: 40px;" #chequeForm="ngForm" (ngSubmit)="chequeForm.form.valid && saveUser()" autocomplete="off" novalidate>
 
     <div class="form-group row">
 
         <div class="col-lg-3 kt-margin-t-25">
-            <label for="hoursworked"> Full Name <i class="text-danger">*</i> </label>
-            <input type="text" name="fullName " id="fullName" class="form-control" #fullName="ngModel"
-                [(ngModel)]="userObj.fullName"  required="true"
-                placeholder="Enter Fullname" />
+            <label for="payee"> Full Name <i class="text-danger">*</i> </label>
+            <input type="text" name="payee " id="payee" class="form-control" #payee="ngModel"
+                [(ngModel)]="chequeObj.payee"  required="true"
+                placeholder="Enter Payee" />
         </div>
 
         <div class="col-lg-3 kt-margin-t-25">
-            <label for="user">Select Designation <i class="text-danger">*</i></label>
-            <p-dropdown [options]="currencyArray" [(ngModel)]="userObj.designation" #deisgnation="ngModel"
-                [style]="{'width':'100%','height':'37px','border-color':'#e2e5ec'}" placeholder="Select Designation"
+            <label for="currency">Select Currency <i class="text-danger">*</i></label>
+            <p-dropdown [options]="currencyArray" [(ngModel)]="chequeObj.currency" #currency="ngModel"
+                [style]="{'width':'100%','height':'37px','border-color':'#e2e5ec'}" placeholder="Select Currency"
                 [ngModelOptions]="{standalone: true}" required="true"></p-dropdown>
         </div>
 
         <div class="col-lg-3 kt-margin-t-25">
-            <label for="hoursworked"> Amount  </label>
-            <input type="text" name="email " id="email" class="form-control" #email="ngModel"
-                [(ngModel)]="userObj.email"  pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}\S$"
-                placeholder="Enter Email" required="true" />
-                <span class="text-danger" *ngIf="email.hasError('pattern')">Email format should be example@abc.com</span>
+            <label for="Amount"> Amount  </label>
+            <input type="number" name="amount " id="amount" class="form-control" #amount="ngModel"
+                [(ngModel)]="chequeObj.amount" 
+                placeholder="Enter Amount" required="true" />
+                <!-- <span class="text-danger" *ngIf="amount.hasError('pattern')">Email format should be example@abc.com</span> -->
         </div>
         <div class="col-lg-3 kt-margin-t-25">
-            <label for="hoursworked">Date </label>
-            <p-calendar [(ngModel)]="startdtime" dateFormat="dd/mm/yy" [style]="{'width':'100%','height':'37px'}"
+            <label for="chequeDate">Date </label>
+            <p-calendar [(ngModel)]="chequeDateObject" dateFormat="dd/mm/yy" [style]="{'width':'100%','height':'37px'}"
              [ngModelOptions]="{standalone: true}" [utc]="true"></p-calendar>
-                <!-- <span class="text-danger" *ngIf="phoneNumber.hasError('pattern')">Please enter a valid Phone Number</span> -->
+                <!-- <span class="text-danger" *ngIf="chequeDate.hasError('pattern')">Please enter a valid Phone Number</span> -->
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-12 text-center">
-            <button type="submit" [disabled]="userForm.invalid" style="margin-right: 10px;"
+            <button type="submit" [disabled]="chequeForm.invalid" style="margin-right: 10px;"
                 class="btn btn-primary btn-pill"><i class="fa fa-save"></i>Save</button>
 
-            <button type="button" class="btn btn-pill btn-info" (click)="cancelFun()">Cancel</button>
+            <button type="button" class="btn btn-pill btn-info" (click)="cancel()">Cancel</button>
         </div>
     </div>
 

@@ -2,6 +2,7 @@
 using DAL.Context;
 using DAL.GlobalExceptions;
 using DAL.Models;
+using DAL.Models.UserDefinedModels;
 using DAL.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,8 @@ using System.Threading.Tasks;
 
 namespace Cheque.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ChequeDetailController : ControllerBase
     {
 
@@ -104,11 +107,11 @@ namespace Cheque.Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("ConvertAmountAUD")]
-        public long ConvertAmountAUD(string currency,long amount)
+        public long ConvertAmountAUD(CurrencyConversionDto obj)
         {
             try
             {
-                ConvertAmount.AmountConversion(currency, amount);
+                ConvertAmount.AmountConversion(obj);
             }
             catch (Exception ex)
             {

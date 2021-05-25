@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ErrorHandlerService, TimeSheetDto, ChequeService } from '../cheque.service';
+import { ChequeService } from '../services/cheque/cheque.service';
+import { ErrorHandlerService } from '../services/ErrorHandler/error-handler.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppConsts } from '../appConstant';
+import { ChequeDetailDto } from '../models/ChequeDetailDto';
 
 @Component({
   selector: 'app-home',
@@ -12,24 +14,22 @@ import { AppConsts } from '../appConstant';
 export class HomeComponent implements OnInit {
 
   //Constructor Call
-  constructor(private errorHandler: ErrorHandlerService,private router: Router, private timeServiceProxy: ChequeService,private toaster: ToastrService) { }
+  constructor(private errorHandler: ErrorHandlerService,private router: Router, private chequeServiceProxy: ChequeService,private toaster: ToastrService) { }
 
   // All Global Variables started
-  timeSheetObj: TimeSheetDto[];
+  cheques: ChequeDetailDto[];
   cols: any[];
-  totalHours = 0;
 
   //Oninit Life Cycle hook started
   ngOnInit() {
 
-    //Fetch all data of timesheet 
-    this.timeServiceProxy.getTimeSheetes().subscribe((data: any) => {
-      this.timeSheetObj = data;
+    //Fetch all data of chequs 
+    this.chequeServiceProxy.getCheques().subscribe((data: any) => {
+      this.cheques = data;
       var obj = [];
       for (let i = 0; i < 7; i++) {
-        obj.push(this.timeSheetObj[i]);
+        obj.push(this.cheques[i]);
       }
-      this.totalWorksCalculate(obj);
       this.toaster.success(AppConsts.successFetchDataMsg, '',{timeOut: 3000});
      }, (error) => { 
       this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
@@ -41,49 +41,37 @@ export class HomeComponent implements OnInit {
 
     // Columns initialized
     this.cols = [
-      { field: 'userFk.fullName', header: 'Name' },
-      { field: 'userFk.designation', header: 'Designation' },
-      { field: 'startDateTime', header: 'StartDateTime' },
-      { field: 'hoursWorked', header: 'HoursWorked' },
+      { field: 'payee', header: 'payee' },
+      { field: 'currency', header: 'currency' },
+      { field: 'amount', header: 'amount' },
+      { field: 'date', header: 'date' },
     ];
 
   }
   //Oninit Life Cycle hook ended
 
-//pagination event catch for calculation
+//pagination 
 paginate(event)
 {
   event.first;
   var obj = [];
   for (let i = event.first ; i < 7 + event.first; i++) {
-    obj.push(this.timeSheetObj[i]);
+    obj.push(this.cheques[i]);
   }
-  this.totalWorksCalculate(obj);
 }
-//Filetr Calucation of work hours
+//Filetr 
 onFilter(event,a) {
-    if(this.timeSheetObj.length == event.filteredValue.length){
+    if(this.cheques.length == event.filteredValue.length){
       var obj = [];
       for (let i = 0; i < 7; i++) {
-        obj.push(this.timeSheetObj[i]);
+        obj.push(this.cheques[i]);
       }
-      this.totalWorksCalculate(obj);
-    }else{
-      this.totalWorksCalculate(event.filteredValue);
     }
     
 }
 
-  //calculate hours
-totalWorksCalculate(timeSheetObjm: TimeSheetDto[]){
-    this.totalHours = 0;
-    for (let i = 0; i < timeSheetObjm.length; i++) {
-      this.totalHours = timeSheetObjm[i].hoursWorked+ this.totalHours;
-    }
-}
-
-  // Function redirect to timesheet create or edit page  
-  generateCheque(chequeId): void {
+  // Function redirect to generateCheque 
+generateCheque(chequeId): void {
     if (chequeId > 0) {
       this.router.navigate(['chequeDetail', chequeId]);
     } else {

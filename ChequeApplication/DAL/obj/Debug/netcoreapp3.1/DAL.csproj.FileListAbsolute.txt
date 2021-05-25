@@ -9,3 +9,4 @@ D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\D
 D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.dll
 D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
 D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
