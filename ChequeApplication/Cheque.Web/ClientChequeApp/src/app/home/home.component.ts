@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ErrorHandlerService, TimeSheetDto, TimesheetService } from '../timesheet.service';
+import { ErrorHandlerService, TimeSheetDto, ChequeService } from '../cheque.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppConsts } from '../appConstant';
 
@@ -12,7 +12,7 @@ import { AppConsts } from '../appConstant';
 export class HomeComponent implements OnInit {
 
   //Constructor Call
-  constructor(private errorHandler: ErrorHandlerService,private router: Router, private timeServiceProxy: TimesheetService,private toaster: ToastrService) { }
+  constructor(private errorHandler: ErrorHandlerService,private router: Router, private timeServiceProxy: ChequeService,private toaster: ToastrService) { }
 
   // All Global Variables started
   timeSheetObj: TimeSheetDto[];
@@ -83,11 +83,11 @@ totalWorksCalculate(timeSheetObjm: TimeSheetDto[]){
 }
 
   // Function redirect to timesheet create or edit page  
-createNewTimeSheet(timeSheetId): void {
-    if (timeSheetId > 0) {
-      this.router.navigate(['timeSheetCreateEdit', timeSheetId]);
+  generateCheque(chequeId): void {
+    if (chequeId > 0) {
+      this.router.navigate(['chequeDetail', chequeId]);
     } else {
-      this.router.navigate(['timeSheetCreateEdit']);
+      this.router.navigate(['chequeDetail']);
     }
   }
 

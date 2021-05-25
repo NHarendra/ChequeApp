@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorHandlerService, TimeSheetDto, TimesheetService, UserDto } from 'src/app/timesheet.service';
+import { ChequeService, ErrorHandlerService, TimeSheetDto, UserDto } from 'src/app/cheque.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppConsts } from 'src/app/appConstant';
 
@@ -19,7 +19,7 @@ export class CreateEditUserComponent implements OnInit {
   
 
   //Constructor Call
-  constructor(private errorHandler: ErrorHandlerService,private router: Router,  private route: ActivatedRoute, private timeServiceProxy: TimesheetService,private toaster: ToastrService) { }
+  constructor(private errorHandler: ErrorHandlerService,private router: Router,  private route: ActivatedRoute, private timeServiceProxy: ChequeService,private toaster: ToastrService) { }
 
   //Onint life cycle hook started
   ngOnInit() {

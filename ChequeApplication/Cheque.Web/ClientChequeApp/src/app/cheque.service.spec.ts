@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TimesheetService } from './timesheet.service';
+import { ChequeService } from './cheque.service';
 
 describe('TimesheetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TimesheetService = TestBed.get(TimesheetService);
+    const service: ChequeService = TestBed.get(ChequeService);
     expect(service).toBeTruthy();
   });
 });

@@ -23,7 +23,7 @@ const baseUrl = 'https://localhost:44341/api';
   providedIn: 'root'
 })
 
-export class TimesheetService {
+export class ChequeService {
 
   constructor(private http: HttpClient) { }
 

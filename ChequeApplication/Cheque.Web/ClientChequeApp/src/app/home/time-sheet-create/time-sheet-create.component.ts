@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorHandlerService, LookupDto, TimeSheetDto, TimeSheetDtoObject, TimesheetService } from 'src/app/timesheet.service';
+import { ErrorHandlerService, LookupDto, TimeSheetDto, TimeSheetDtoObject, ChequeService } from 'src/app/cheque.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppConsts } from 'src/app/appConstant';
 import * as moment from 'moment';
@@ -20,7 +20,7 @@ export class TimeSheetCreateComponent implements OnInit {
   startdtime: any;
 
   //Constructor Call
-  constructor(private errorHandler: ErrorHandlerService, private router: Router, private route: ActivatedRoute, private timeServiceProxy: TimesheetService, private toaster: ToastrService) { }
+  constructor(private errorHandler: ErrorHandlerService, private router: Router, private route: ActivatedRoute, private timeServiceProxy: ChequeService, private toaster: ToastrService) { }
 
   //Oninit Life Cycle hook started
   ngOnInit() {
