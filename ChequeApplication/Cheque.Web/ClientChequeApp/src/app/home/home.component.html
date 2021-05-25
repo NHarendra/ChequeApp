@@ -1,0 +1,63 @@
+
+<!--Page Name -->
+<h4 class="under-below" style="color: blueviolet;">Time Sheet Report</h4>
+
+<!--Create Button -->
+<div class="ui-helper-clearfix" style="text-align: right;margin-bottom: 10px;">
+    <button type="button" class="btn btn-sm btn-primary" (click)="createNewTimeSheet()"><i class="fa fa-file"></i>Create New TimeSheet</button>
+</div>
+
+<!--Data Table -->
+<p-table (onFilter)="onFilter($event, dt)" [columns]="cols" [rowsPerPageOptions]="[7]" [value]="timeSheetObj" #dt [columns]="timeSheetObj"
+    sortMode="multiple" [paginator]="true" (onPage)="paginate($event)" [rows]="7" [exportFilename]="'TimeSheetReport'">
+
+    <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <button type="button" class="btn btn-sm btn-success" (click)="dt.exportCSV()"><i class="fa fa-file"></i>ExportToExcel</button>
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Global Search"
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th pResizableColumn>Action</th>
+            <th pResizableColumn>Name</th>
+            <th pResizableColumn>Designation</th>
+            <th pResizableColumn>Sater DateTime</th>
+            <th pResizableColumn>Hours Worked</th>
+        </tr>
+    </ng-template>
+  
+    <ng-template pTemplate="body" let-timeSheetObj>
+        <tr>
+            <td> <a class="btn btn-info btn-sm" (click)="createNewTimeSheet(timeSheetObj.id)">Edit</a></td>
+            <td> {{timeSheetObj.userFk.fullName}} </td>
+            <td> {{timeSheetObj.userFk.designation}}</td>
+            <td> {{timeSheetObj.startDateTime | date: 'dd/MM/yyyy'}}</td>
+            <td> {{timeSheetObj.hoursWorked}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-timeSheetObj let-columns="columns">
+        <tr>
+            <td colspan="4" class="text-right">Totals Hours Worked</td>
+            <td >  {{totalHours}} </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td colspan="5" class="text-center" [attr.rowspan]="columns.length">
+                No records found
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
