@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse, HttpResponseB
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
-import { ChequeDetailDtoDto } from 'src/app/models/ChequeDetailDto';
 import { CurrencyConversionDto } from 'src/app/models/CurrencyConversionDto';
+import { ChequeDetailDto } from 'src/app/models/ChequeDetailDto';
 
 
 // Http Options
@@ -19,7 +19,7 @@ const httpOptions = {
 }
 
 // Globally Define Http Web Api Url
-const baseUrl = 'https://localhost:44341/api';
+const baseUrl = 'https://localhost:41263/api';
 
 @Injectable({
   providedIn: 'root'
@@ -30,19 +30,19 @@ export class ChequeService {
   constructor(private http: HttpClient) { }
 
   // User related services
-  getCheque(Id: number | null | undefined): Observable<ChequeDetailDtoDto> {
-    return this.http.get<ChequeDetailDtoDto>(baseUrl + "/ChequeDetail/" + Id, httpOptions);
+  getCheque(Id: number | null | undefined): Observable<ChequeDetailDto> {
+    return this.http.get<ChequeDetailDto>(baseUrl + "/ChequeDetail/" + Id, httpOptions);
   }
 
-  getCheques(): Observable<ChequeDetailDtoDto> {
-    return this.http.get<ChequeDetailDtoDto>(baseUrl + "/ChequeDetail", httpOptions);
+  getCheques(): Observable<ChequeDetailDto> {
+    return this.http.get<ChequeDetailDto>(baseUrl + "/ChequeDetail", httpOptions);
   }
 
-  postCheque(model: ChequeDetailDtoDto): Observable<any> {
+  postCheque(model: ChequeDetailDto): Observable<any> {
     return this.http.post<any>(baseUrl + "/ChequeDetail", model, httpOptions);
   }
 
-  updateCheque(model: ChequeDetailDtoDto): Observable<any> {
+  updateCheque(model: ChequeDetailDto): Observable<any> {
     return this.http.put<any>(baseUrl + "/ChequeDetail", model, httpOptions);
   }
 

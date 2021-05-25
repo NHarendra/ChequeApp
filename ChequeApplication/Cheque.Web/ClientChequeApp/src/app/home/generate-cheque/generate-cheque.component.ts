@@ -5,6 +5,7 @@ import { ChequeService } from 'src/app/services/cheque/cheque.service';
 import { AppConsts } from 'src/app/appConstant';
 import { ChequeDetailDto } from 'src/app/models/ChequeDetailDto';
 import { CurrencyDto } from 'src/app/models/CurrencyDto';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { CurrencyDto } from 'src/app/models/CurrencyDto';
 })
 export class GenerateChequeComponent implements OnInit {
 
-  constructor(private chequeServiceProxy: ChequeService,private toaster: ToastrService) { }
+  constructor(private chequeServiceProxy: ChequeService,private toaster: ToastrService,private router: Router) { }
 
   currencyArray: CurrencyDto[];
   chequeObj = <ChequeDetailDto>{};
@@ -25,9 +26,10 @@ export class GenerateChequeComponent implements OnInit {
   ngOnInit() {
     this.currencyArray = [
       {label: 'AUD', value: 'AUD'},
-      {label: 'US', value: 'US'},
+      {label: 'USD', value: 'US'},
       {label: 'INR', value: 'INR'},
-      {label: ' Developer', value: ' Developer'}
+      {label: 'EUR', value: 'EUR'},
+      {label: 'GBP', value: 'GBP'}
      ];
   }
 
@@ -55,7 +57,7 @@ export class GenerateChequeComponent implements OnInit {
   
 
   cancel(){
-
+    this.router.navigate(['home']);
   }
 
 }

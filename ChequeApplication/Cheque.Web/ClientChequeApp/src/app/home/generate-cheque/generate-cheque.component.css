@@ -1,0 +1,7 @@
+#amtRem::-webkit-inner-spin-button, #amtRem::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+#amtRem {
+    -moz-appearance:textfield !important;
+}

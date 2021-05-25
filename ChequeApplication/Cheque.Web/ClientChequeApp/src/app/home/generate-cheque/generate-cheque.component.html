@@ -19,7 +19,7 @@
 
         <div class="col-lg-3 kt-margin-t-25">
             <label for="Amount"> Amount  </label>
-            <input type="number" name="amount " id="amount" class="form-control" #amount="ngModel"
+            <input type="number" id="amtRem" name="amount" class="form-control" #amount="ngModel"
                 [(ngModel)]="chequeObj.amount" 
                 placeholder="Enter Amount" required="true" />
                 <!-- <span class="text-danger" *ngIf="amount.hasError('pattern')">Email format should be example@abc.com</span> -->
@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <button type="submit" [disabled]="chequeForm.invalid" style="margin-right: 10px;"
-                class="btn btn-primary btn-pill"><i class="fa fa-save"></i>Save</button>
+                class="btn btn-primary btn-pill"><i class="fa fa-save"></i>Generate</button>
 
             <button type="button" class="btn btn-pill btn-info" (click)="cancel()">Cancel</button>
         </div>
