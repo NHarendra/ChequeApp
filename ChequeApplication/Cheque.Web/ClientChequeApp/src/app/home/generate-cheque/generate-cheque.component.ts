@@ -12,6 +12,7 @@ export class GenerateChequeComponent implements OnInit {
 
   currencyArray: ICurrency[];
   userObj = <UserDto>{};
+  startdtime: any;
 
   ngOnInit() {
     
