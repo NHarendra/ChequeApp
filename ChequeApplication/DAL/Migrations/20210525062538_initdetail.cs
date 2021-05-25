@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class initial : Migration
+    public partial class initdetail : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Cheques",
+                name: "ChequeDetails",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -23,14 +23,14 @@ namespace DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cheques", x => x.Id);
+                    table.PrimaryKey("PK_ChequeDetails", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cheques");
+                name: "ChequeDetails");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DAL.Context
 
     public class ChequeContext : DbContext
     {
-        public DbSet<Cheque> Cheques { get; set; }
+        public DbSet<ChequeDetail> ChequeDetails { get; set; }
 
         public ChequeContext(DbContextOptions<ChequeContext> options) : base(options)
         {

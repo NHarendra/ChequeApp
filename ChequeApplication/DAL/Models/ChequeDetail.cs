@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Models
 {
-   public class Cheque : BaseEntity
+   public class ChequeDetail : BaseEntity
     {
         [Required]
         public virtual String Payee { get; set; }
