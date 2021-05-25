@@ -1,4 +1,5 @@
-﻿using DAL.Context;
+﻿using Cheque.Api.Common;
+using DAL.Context;
 using DAL.GlobalExceptions;
 using DAL.Models;
 using DAL.Repositories;
@@ -99,6 +100,23 @@ namespace Cheque.Api.Controllers
         }
 
         /************************************ End all Curd logic from here **************************************************/
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("ConvertAmountAUD")]
+        public long ConvertAmountAUD(string currency,long amount)
+        {
+            try
+            {
+                ConvertAmount.AmountConversion(currency, amount);
+            }
+            catch (Exception ex)
+            {
+                throw new CustomeException(ex.Message);
+            }
+            return 100;
+        }
+
         #endregion
     }
 }

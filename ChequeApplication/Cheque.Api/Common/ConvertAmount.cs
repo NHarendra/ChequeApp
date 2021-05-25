@@ -7,6 +7,9 @@ namespace Cheque.Api.Common
 {
     public static class ConvertAmount
     {
-
+        public static long AmountConversion(string currency,long amount)
+        {
+            return 100;
+        }
     }
 }

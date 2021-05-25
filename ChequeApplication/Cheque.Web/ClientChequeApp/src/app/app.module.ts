@@ -6,14 +6,10 @@ import { HttpClientModule,HTTP_INTERCEPTORS, HttpClient } from '@angular/common/
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import {DropdownModule} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-//import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
-import { CreateEditUserComponent } from './users/create-edit-user/create-edit-user.component';
-import { TimeSheetCreateComponent } from './home/time-sheet-create/time-sheet-create.component';
 import { ErrorHandlerService, ChequeService } from './cheque.service';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
@@ -28,10 +24,7 @@ import { GenerateChequeComponent } from './home/generate-cheque/generate-cheque.
     AppComponent,
     HeaderComponent,
     FooterComponent,
-  //  UsersComponent,
     HomeComponent,
-    CreateEditUserComponent,
-    TimeSheetCreateComponent,
     GenerateChequeComponent
   ],
   imports: [
