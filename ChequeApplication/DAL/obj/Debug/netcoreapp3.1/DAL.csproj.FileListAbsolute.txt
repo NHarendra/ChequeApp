@@ -1,0 +1,11 @@
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+D:\Innolat_Github_Repo\ChequeApp\ChequeApplication\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
