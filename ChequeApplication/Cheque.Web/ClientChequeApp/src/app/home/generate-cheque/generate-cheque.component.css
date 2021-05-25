@@ -5,3 +5,64 @@
 #amtRem {
     -moz-appearance:textfield !important;
 }
+
+.main {
+  background: linear-gradient(to right, #c7c7ff, #f2f2f2);
+}
+
+.doller-input {
+  height: 20px;
+  width: 100%;
+  background: white;
+}
+
+.doller-design {
+  font-weight: 900;
+  width: 40px;
+  height: 40px;
+  background: black;
+  color: white;
+  font-size: 32px;
+  padding: 0px 10px;
+}
+
+.float-right {
+  float: right;
+}
+
+.font800 {
+  font-weight: 800;
+}
+
+.font8 {
+  font-size: 8px;
+}
+
+.font10 {
+  font-size: 10px;
+}
+
+.font24 {
+  font-size: 24px;
+}
+
+.underlinecss {
+  border-bottom: 2px solid black;
+}
+
+.underlinecssWidth {
+  border-bottom: 2px solid black;
+  width:23em;
+}
+
+.underlinecssSign {
+  border-bottom: 2px solid black;
+  width: 28em;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive');
+.sig3 {
+   font-family: 'Cedarville Cursive', cursive;
+}
+
+

@@ -22,6 +22,7 @@ export class GenerateChequeComponent implements OnInit {
   convertAmount = <CurrencyConversionDto>{};
   chequeDateObject: any;
   convertedAmount: any;
+  isChequeVisible = false;
 
   ngOnInit() {
     this.currencyArray = [
@@ -39,6 +40,7 @@ export class GenerateChequeComponent implements OnInit {
      this.convertAmount.currency = this.chequeObj.currency;
      this.chequeServiceProxy.convertAmount(this.convertAmount).subscribe((data: any) => {
       this.convertedAmount = data;
+      this.isChequeVisible = true;
      }, (error) => { 
       this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
     });
