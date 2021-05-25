@@ -1,4 +1,6 @@
 using DAL.Context;
+using DAL.GlobalExceptions;
+using DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +31,24 @@ namespace Cheque.Api
             var connection = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<ChequeContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
+            services.AddMvc();
+            services.AddMvc(
+             config => {
+                 config.Filters.Add(typeof(GlobalExceptionFilter));
+             }
+                );
+            services.AddScoped<ChequeContext>();
+            services.AddScoped(typeof(IRepository<>), typeof(RepositoryClass<>));
+            services.AddControllers();
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                 builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:4200").AllowCredentials();
+            }));
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +58,20 @@ namespace Cheque.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
+
+            app.UseSwagger(c =>
+            {
+                c.SerializeAsV2 = true;
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
