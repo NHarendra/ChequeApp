@@ -14,5 +14,6 @@ namespace DAL.Models
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdateAt { get; set; } = DateTime.Now;
+        public bool IsActive { get; set; } = true;
     }
 }
