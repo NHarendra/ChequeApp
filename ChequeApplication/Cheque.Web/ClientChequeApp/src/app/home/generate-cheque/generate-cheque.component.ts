@@ -37,24 +37,25 @@ export class GenerateChequeComponent implements OnInit {
   //generate cheque
   generateCheque() {
      this.convertAmount.amount = this.chequeObj.amount;
-     this.convertAmount.currency = this.chequeObj.currency;
-     this.chequeServiceProxy.convertAmount(this.convertAmount).subscribe((data: any) => {
-      this.convertedAmount = data;
-      this.isChequeVisible = true;
-     }, (error) => { 
-      this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
-    });
+    this.convertAmount.currency = this.chequeObj.currency;
+    alert("cheque");
+    // this.chequeServiceProxy.convertAmount(this.convertAmount).subscribe((data: any) => {
+    //  this.convertedAmount = data;
+    //  this.isChequeVisible = true;
+    // }, (error) => { 
+    //  this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
+    //});
   }
 
   //saving cheque details
   saveChequeDetails() {
      this.chequeObj.amount = this.convertedAmount; 
      this.chequeObj.date = this.chequeDateObject;
-     this.chequeServiceProxy.postCheque(this.chequeObj).subscribe((data: any) => {
-      this.toaster.success(AppConsts.successSavedMsg, '',{timeOut: 3000});
-    }, (error) => { 
-     this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
-   });
+   //  this.chequeServiceProxy.postCheque(this.chequeObj).subscribe((data: any) => {
+   //   this.toaster.success(AppConsts.successSavedMsg, '',{timeOut: 3000});
+   // }, (error) => { 
+   //  this.toaster.error(AppConsts.errorMsg, '',{timeOut: 3000});
+   //});
  }
   
 
